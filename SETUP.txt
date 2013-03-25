@@ -1,0 +1,35 @@
+NanoBlog
+by Clint Bellanger
+Simple tumbler style blog
+
+MYSQL setup:
+
+Note we're setting a password here to be used by PHP to connect to your
+database in MySQL. This is only used internally by nanoblog. It should
+be complex. Write down the password you use because it needs to also
+be set in the inc_config.php file.
+
+Note you can also use a different database or user name here; if you do
+be sure to update these in the inc_config.php file.
+
+    create database nanoblog;
+    use nanoblog;
+    create table posts (stamp text, body text);
+    grant select, insert, update on nanoblog.posts to 'nanouser'@'localhost' 
+      identified by 'set-a-database-password-here';
+  
+HTACCESS setup:
+
+You'll want to password protect the blog.php file (used to create and edit
+posts). Use htpasswd to create a new password file. Edit the .htaccess file
+to point to it.
+
+BLOG setup:
+
+Edit inc_config.php and change those values as needed. You'll at least have to
+set DBPASS to match the MySQL password used above.
+
+TIPS:
+
+You may have to create a blank rss file with open permissions (777) if your
+instance of Apache doesn't have write permission on your public html folder.

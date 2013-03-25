@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteRule ^blog/archive/$ archive.php
+RewriteRule ^blog/archive$ archive.php
+RewriteRule ^blog/([0-9]+)/$ post.php?d=$1
+RewriteRule ^blog/([0-9]+)$ post.php?d=$1
+
+<Files "blog.php">
+  AuthUserFile /path/to/.htpasswd
+  AuthType Basic
+  AuthName "Nano Blog -- Admin"
+  require user admin
+</Files>
