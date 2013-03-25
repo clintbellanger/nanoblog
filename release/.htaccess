@@ -5,7 +5,7 @@ RewriteRule ^blog/archive$ archive.php
 RewriteRule ^blog/([0-9]+)/$ post.php?d=$1
 RewriteRule ^blog/([0-9]+)$ post.php?d=$1
 
-<Files "blog.php">
+<Files "edit.php">
   AuthUserFile /path/to/.htpasswd
   AuthType Basic
   AuthName "Nano Blog -- Admin"

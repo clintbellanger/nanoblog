@@ -20,7 +20,7 @@ be sure to update these in the inc_config.php file.
   
 HTACCESS setup:
 
-You'll want to password protect the blog.php file (used to create and edit
+You'll want to password protect the edit.php file (used to create and edit
 posts). Use htpasswd to create a new password file. Edit the .htaccess file
 to point to it.
 
