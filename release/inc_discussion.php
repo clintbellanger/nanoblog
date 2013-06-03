@@ -10,20 +10,20 @@
       echo "    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);\n";
       echo "  })();\n";
       echo "</script>\n";
-	}
+    }
   }
- 
+
   function get_comment_counts() {
     if (DISQUS_SHORTNAME != "") {
       echo "<script type=\"text/javascript\">\n";
-	  echo "  (function () {\n";
-	  echo "    var s = document.createElement('script'); s.async = true;\n";
-	  echo "    s.type = 'text/javascript';\n";
-	  echo "    s.src = 'http://" . DISQUS_SHORTNAME . ".disqus.com/count.js';\n";
+      echo "  (function () {\n";
+      echo "    var s = document.createElement('script'); s.async = true;\n";
+      echo "    s.type = 'text/javascript';\n";
+      echo "    s.src = 'http://" . DISQUS_SHORTNAME . ".disqus.com/count.js';\n";
       echo "    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);\n";
-	  echo "  }());\n";
-      echo "</script>\n\b";    
+      echo "  }());\n";
+      echo "</script>\n\b";
     }
   }
-  
+
 ?>

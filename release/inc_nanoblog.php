@@ -17,16 +17,16 @@
     format_stamp($stamp);
     echo "</a></h3>\n";
     echo $body . "\n";
-	echo "<p class=\"post_footer\"><a href=\"" . PERMALINK . $stamp . "\">Permalink</a>";
-	
-    if (DISQUS_SHORTNAME != "") {	
-	  echo " | <a href=\"" . PERMALINK . $stamp . "#disqus_thread\">Comments</a>";
-	};
-	
-	echo "</p>\n";
-    echo "</div>\n";		
+    echo "<p class=\"post_footer\"><a href=\"" . PERMALINK . $stamp . "\">Permalink</a>";
+
+    if (DISQUS_SHORTNAME != "") {
+      echo " | <a href=\"" . PERMALINK . $stamp . "#disqus_thread\">Comments</a>";
+    };
+
+    echo "</p>\n";
+    echo "</div>\n";
   }
-  
+
   function get_blog($limit) {
     $db = new PDO(DBCONNECT, DBUSER, DBPASS);
     $sql = 'select body, stamp from posts order by stamp desc';
@@ -40,17 +40,17 @@
   }
 
   function get_single() {
-    if (isset($_GET['d'])) {	  
+    if (isset($_GET['d'])) {
       $db = new PDO(DBCONNECT, DBUSER, DBPASS);
       $sql = 'select body, stamp from posts where stamp = ?';
       $stmt = $db->prepare($sql);
-      $stmt->bindParam(1,$_GET['d']);		
+      $stmt->bindParam(1,$_GET['d']);
       $stmt->execute();
       if ($row = $stmt->fetch())
         format_post($row['stamp'], $row['body']);
       $stmt = null;
       $db = null;
-	  get_discussion();
+      get_discussion();
     }
   }
 
