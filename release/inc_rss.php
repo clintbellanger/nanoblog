@@ -1,10 +1,17 @@
 <?php
 
+  function rss_date($stamp) {
+    $dt = date_create_from_format("Ymd", $stamp);
+    date_time_set($dt, 0, 0, 0);
+    return date_format($dt, DATE_RSS);
+  }
+
   function create_item($fout, $stamp, $body) {
     fwrite($fout, '    <item>' . "\n");
     fwrite($fout, '      <title>' . $stamp . '</title>' . "\n");
     fwrite($fout, '      <link>' . FULLLINK . $stamp . '</link>' . "\n");
     fwrite($fout, '      <description>' . substr(strip_tags($body),0,128) . '</description>' . "\n");
+    fwrite($fout, '      <pubDate>' . rss_date($stamp) . '</pubDate>' . "\n");
     fwrite($fout, '    </item>' . "\n");
   }
 
