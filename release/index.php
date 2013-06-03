@@ -5,7 +5,7 @@
 ?>
 
 <?php
-  get_blog(POSTCOUNT); 
+  get_blog(POSTCOUNT);
 ?>
 
 <div id="archive">
