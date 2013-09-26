@@ -1,7 +1,7 @@
 <?php
 
   function rss_date($stamp) {
-    $dt = date_create_from_format("Ymd", $stamp);
+    $dt = date_create($stamp);
     date_time_set($dt, 0, 0, 0);
     return date_format($dt, DATE_RSS);
   }
